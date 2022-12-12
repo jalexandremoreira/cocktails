@@ -35,6 +35,7 @@ export default function Card({ drink, setSelectedId, setShowModal }: Props) {
         alt={drink?.strDrink ?? 'alt'}
         style={{
           height: '100%',
+          filter: 'blur(1px)',
           position: 'absolute',
           width: '100%',
           objectFit: 'cover',
@@ -60,12 +61,18 @@ export default function Card({ drink, setSelectedId, setShowModal }: Props) {
           margin: 20,
         }}
       >
-        <h2 className="white" style={{ margin: '0 0 10px' }}>
+        <span
+          className="white"
+          style={{ margin: '0 0 10px', fontSize: isMobile ? '25px' : '36px' }}
+        >
           {drink?.strDrink ?? ''}
-        </h2>
-        <p className="white" style={{ fontSize: '15px', margin: 0 }}>
+        </span>
+        <span
+          className="white"
+          style={{ fontSize: isMobile ? '18px' : '13px', margin: 0 }}
+        >
           {drink?.strAlcoholic ?? ''}
-        </p>
+        </span>
       </div>
     </div>
   );

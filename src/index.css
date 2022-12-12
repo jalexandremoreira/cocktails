@@ -12,6 +12,10 @@ body {
   align-items: center;
 }
 
+.AbrilFatface {
+  font-family: 'Abril Fatface', cursive;
+}
+
 .black {
   color: #0e0d0d;
 }

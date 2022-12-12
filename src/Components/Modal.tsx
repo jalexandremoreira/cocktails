@@ -128,7 +128,7 @@ export default function Modal({ drink, showModal, setShowModal }: Props) {
             alt={drink?.strDrink ?? 'alt'}
             style={{
               position: 'absolute',
-              top: '-20%',
+              top: '-5%',
               width: modalWidth,
               zIndex: 1,
             }}
@@ -142,7 +142,7 @@ export default function Modal({ drink, showModal, setShowModal }: Props) {
               display: 'inline-block',
               flexDirection: 'column',
               height: 'auto',
-              marginTop: '45%',
+              marginTop: '40%',
               overflow: 'auto',
               position: 'relative',
               width: modalWidth,
@@ -164,7 +164,7 @@ export default function Modal({ drink, showModal, setShowModal }: Props) {
                 width: '100%',
               }}
             >
-              <span className="white" style={{ fontSize: '50px' }}>
+              <span className="AbrilFatface white" style={{ fontSize: '50px' }}>
                 {drink?.strDrink}
               </span>
               <span className="white" style={{ fontSize: '25px' }}>
@@ -211,7 +211,9 @@ export default function Modal({ drink, showModal, setShowModal }: Props) {
                         className="white textMargin"
                         style={{ fontSize: '20px' }}
                       >
-                        •&nbsp;{ingredientAmounts[index].toLowerCase()}&nbsp;
+                        •&nbsp;
+                        {ingredientAmounts[index] &&
+                          `${ingredientAmounts[index].toLowerCase()} `}
                         {ingredient}
                       </span>
                     );

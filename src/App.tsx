@@ -24,7 +24,10 @@ export default function App() {
   }, [selectedId]);
 
   return (
-    <div style={{ maxWidth: '1200px', margin: isMobile ? '0 10px' : '0 30px' }}>
+    <div style={{ maxWidth: '900px', margin: isMobile ? '0 10px' : '0 30px' }}>
+      <div style={{ width: '100%', fontSize: isMobile ? '50px' : '90px' }}>
+        <span className="AbrilFatface white">Cocktails</span>
+      </div>
       <Modal drink={drink} showModal={showModal} setShowModal={setShowModal} />
       <Alphabet setLetter={setLetter} letter={letter} />
 
