@@ -3,7 +3,7 @@ type StringOrNull = string | null;
 export interface Drink {
   'strInstructionsZH-HANS': StringOrNull;
   'strInstructionsZH-HANT': StringOrNull;
-  dateModified: number | null;
+  dateModified: StringOrNull;
   idDrink: StringOrNull;
   strAlcoholic: StringOrNull;
   strCategory: StringOrNull;
