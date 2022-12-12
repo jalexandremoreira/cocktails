@@ -13,7 +13,7 @@ export default function Card({ drink, setSelectedId, setShowModal }: Props) {
   return (
     <div
       style={{
-        border: 'solid 2px #ede5e5',
+        border: 'solid 1px #ede5e5',
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',

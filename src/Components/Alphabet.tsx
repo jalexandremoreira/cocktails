@@ -21,23 +21,20 @@ export default function Alphabet({
     >
       {alphabet.split('').map((currentLetter, id) => (
         <div
-          key={id}
           style={{
             alignItems: 'center',
-            border: currentLetter === letter ? 'solid 1px red' : 'none',
-            borderRadius: 1000,
             display: 'flex',
-            height: '30px',
+            flexDirection: 'column',
             justifyContent: 'center',
-            width: '30px',
           }}
         >
           <button
+            key={id}
             className="white"
             style={{
               background: 'none',
               border: 'none',
-              fontSize: '20px',
+              fontSize: currentLetter === letter ? '21px' : '20px',
               fontWeight: currentLetter === letter ? 'bold' : 'normal',
               padding: '5px',
               cursor: 'pointer',
@@ -46,6 +43,17 @@ export default function Alphabet({
           >
             {currentLetter}
           </button>
+          {currentLetter === letter ? (
+            <div
+              style={{
+                background: '#E06C19',
+                borderRadius: 1000,
+                height: '3px',
+                marginTop: -2,
+                width: '11px',
+              }}
+            />
+          ) : null}
         </div>
       ))}
       <div style={{ margin: 'auto' }} />

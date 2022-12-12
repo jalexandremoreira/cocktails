@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 
 import Alphabet from './Components/Alphabet';
 import Card from './Components/ListCard';
@@ -23,7 +24,7 @@ export default function App() {
   }, [selectedId]);
 
   return (
-    <div style={{ maxWidth: '1200px' }}>
+    <div style={{ maxWidth: '1200px', margin: isMobile ? '0 10px' : '0 30px' }}>
       <Modal drink={drink} showModal={showModal} setShowModal={setShowModal} />
       <Alphabet setLetter={setLetter} letter={letter} />
 
