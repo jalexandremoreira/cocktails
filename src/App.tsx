@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import * as API from './api';
+import { Drink } from './types';
+
+export default function App() {
+  const [drink, setDrink] = React.useState<Drink | null>(null);
+
+  React.useEffect(() => {
+    // API.fetchByID(11007).then((drinkData) => setDrink(drinkData));
+    API.fetchAlphabet('a').then((drinkData) => setDrink(drinkData));
+  }, []);
+
+  console.log(drink);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>henlo</p>
     </div>
   );
 }
-
-export default App;
