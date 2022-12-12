@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 
 import { Drink } from '../types';
 
@@ -9,18 +10,17 @@ interface Props {
 }
 
 export default function Card({ drink, setSelectedId, setShowModal }: Props) {
-  const height = '300px';
-
   return (
     <div
       style={{
+        border: 'solid 2px #ede5e5',
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
-        height: height,
+        height: isMobile ? '230px' : '300px',
         justifyContent: 'flex-end',
         position: 'relative',
-        width: '30%',
+        width: isMobile ? '48%' : '30%',
         borderRadius: 10,
         overflow: 'hidden',
         marginBottom: '20px',
@@ -60,10 +60,10 @@ export default function Card({ drink, setSelectedId, setShowModal }: Props) {
           margin: 20,
         }}
       >
-        <h2 style={{ color: 'white', margin: '0 0 10px' }}>
+        <h2 className="white" style={{ margin: '0 0 10px' }}>
           {drink?.strDrink ?? ''}
         </h2>
-        <p style={{ fontSize: '15px', color: 'white', margin: 0 }}>
+        <p className="white" style={{ fontSize: '15px', margin: 0 }}>
           {drink?.strAlcoholic ?? ''}
         </p>
       </div>

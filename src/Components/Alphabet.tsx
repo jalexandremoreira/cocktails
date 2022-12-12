@@ -16,6 +16,7 @@ export default function Alphabet({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
+        flexWrap: 'wrap',
       }}
     >
       {alphabet.split('').map((currentLetter, id) => (
@@ -32,10 +33,10 @@ export default function Alphabet({
           }}
         >
           <button
+            className="white"
             style={{
               background: 'none',
               border: 'none',
-              color: 'black',
               fontSize: '20px',
               fontWeight: currentLetter === letter ? 'bold' : 'normal',
               padding: '5px',
@@ -47,6 +48,7 @@ export default function Alphabet({
           </button>
         </div>
       ))}
+      <div style={{ margin: 'auto' }} />
     </div>
   );
 }

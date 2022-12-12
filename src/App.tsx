@@ -23,9 +23,12 @@ export default function App() {
   }, [selectedId]);
 
   return (
-    <div className="App">
+    <div style={{ maxWidth: '1200px' }}>
       <Modal drink={drink} showModal={showModal} setShowModal={setShowModal} />
       <Alphabet setLetter={setLetter} letter={letter} />
+
+      <div style={{ height: '30px' }} />
+
       <div
         style={{
           display: 'flex',
