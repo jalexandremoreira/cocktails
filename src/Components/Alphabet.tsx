@@ -31,6 +31,7 @@ export default function Alphabet({ setLetter, letter, randomDrink }: Props) {
       >
         {alphabet.split('').map((currentLetter, id) => (
           <div
+            key={id}
             style={{
               alignItems: 'center',
               display: 'flex',
@@ -39,7 +40,6 @@ export default function Alphabet({ setLetter, letter, randomDrink }: Props) {
             }}
           >
             <button
-              key={id}
               className="white"
               style={{
                 background: 'none',
