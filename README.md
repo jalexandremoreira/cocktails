@@ -6,7 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn install --ignore-engines`
+
+Installs the necessary dependencies for the project.\
+
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,33 +18,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Development Time
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Development took about 12h, including the time to implement the API. The reason for this is the lack of a UI library. I wanted to display my ability to create complex UI from scratch (particularly a Modal), but this took a lot of time. I also wanted to implement a search bar, but I ran out of time.
 
-### `npm run build`
+A couple of extra hours were also spent on the first day just quickly mocking up the layout and establishing a solid foundation of the visual language of the app, in order to reduce time spent on design decisions later on.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Future Improvements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Some of the things in this list are "nice to have" and some are "must have" in order to make the app production ready. I do see myself using this app in the future, so I will certainly implement some of these features.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Add a search bar;
+- Add routes in order to share drinks with friends;
+- Add a "load more button" to the home page in order to load the next letter of the alphabet;
+- Add a 404 page
+- Add better handling when there are no favorites;
+- Add E2E testing with Cypress or a similar tool;
+- Add better handling of errors;
+- Add accounts for persistent favorites;
