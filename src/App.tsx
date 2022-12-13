@@ -39,6 +39,8 @@ export default function App() {
   };
 
   const viewFavorites = () => {
+    if (!favorites || favorites.length === 0) return;
+
     setLetter(null);
     setDrinks(favorites);
   };
@@ -56,12 +58,21 @@ export default function App() {
           width: '100%',
         }}
       >
-        <span className="AbrilFatface white">Cocktails</span>
+        <span
+          className="AbrilFatface white"
+          style={{
+            cursor: 'pointer',
+          }}
+          onClick={() => setLetter('a')}
+        >
+          Cocktails
+        </span>
 
         <svg
           id="modal-favorites-button"
           style={{
-            cursor: 'pointer',
+            cursor:
+              !favorites || favorites.length === 0 ? 'not-allowed' : 'pointer',
             marginRight: isMobile ? '10px' : '15px',
           }}
           onClick={viewFavorites}
@@ -73,7 +84,11 @@ export default function App() {
         >
           <path
             d="M10.4166 43.75V10.4167C10.4166 9.27083 10.825 8.28958 11.6416 7.47292C12.4569 6.65764 13.4375 6.25 14.5833 6.25H35.4166C36.5625 6.25 37.5437 6.65764 38.3604 7.47292C39.1757 8.28958 39.5833 9.27083 39.5833 10.4167V43.75L25 37.5L10.4166 43.75Z"
-            fill="#EDE5E5"
+            fill={
+              !favorites || favorites.length === 0
+                ? 'rgba(237, 229, 229, 0.34)'
+                : '#EDE5E5'
+            }
           />
         </svg>
       </div>
