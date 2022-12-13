@@ -5,18 +5,20 @@ import { Drink } from '../types';
 
 interface Props {
   drink: Drink | null;
-  showModal: boolean;
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   favorites: Drink[] | null;
   setFavorites: React.Dispatch<React.SetStateAction<Drink[] | null>>;
+  setDrink: React.Dispatch<React.SetStateAction<Drink | null>>;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showModal: boolean;
 }
 
 export default function Modal({
   drink,
-  showModal,
-  setShowModal,
   favorites,
   setFavorites,
+  setDrink,
+  setShowModal,
+  showModal,
 }: Props) {
   const [isFavorite, setIsFavorite] = React.useState<boolean>(false);
 
@@ -118,7 +120,10 @@ export default function Modal({
           width: '100%',
           zIndex: 100,
         }}
-        onClick={() => setShowModal(false)}
+        onClick={() => {
+          setDrink(null);
+          setShowModal(false);
+        }}
       >
         <div
           id="modal-container"
@@ -211,7 +216,10 @@ export default function Modal({
               <svg
                 id="modal-close-button"
                 style={{ cursor: 'pointer' }}
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  setDrink(null);
+                  setShowModal(false);
+                }}
                 width={isMobile ? '20' : '30'}
                 height={isMobile ? '20' : '30'}
                 viewBox="0 0 27 27"

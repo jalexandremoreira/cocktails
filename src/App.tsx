@@ -98,6 +98,7 @@ export default function App() {
         setShowModal={setShowModal}
         favorites={favorites}
         setFavorites={setFavorites}
+        setDrink={setDrink}
       />
       <Alphabet
         randomDrink={handleRandomDrink}
