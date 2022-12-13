@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployment
+
+The app is currently deployed through Vercel [here](https://cocktails-three-rust.vercel.app/).
+
 ## Available Scripts
 
 In the project directory, you can run:
