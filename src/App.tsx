@@ -10,13 +10,13 @@ import * as API from './api';
 export default function App() {
   const [drink, setDrink] = React.useState<Drink | null>(null);
   const [drinks, setDrinks] = React.useState<Drink[] | null>(null);
-  // const [favorites, setFavorites] = React.useState<Drink[] | null>(null);
-  const [letter, setLetter] = React.useState<string>('a');
+  const [favorites, setFavorites] = React.useState<Drink[] | null>(null);
+  const [letter, setLetter] = React.useState<string | null>('a');
   const [selectedId, setSelectedId] = React.useState<number | null>(null);
   const [showModal, setShowModal] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    API.fetchAlphabet(letter).then((drinkData) => setDrinks(drinkData));
+    API.fetchAlphabet(letter ?? '').then((drinkData) => setDrinks(drinkData));
   }, [letter]);
 
   React.useEffect(() => {
@@ -24,11 +24,23 @@ export default function App() {
       API.fetchByID(selectedId).then((drinkData) => setDrink(drinkData));
   }, [selectedId]);
 
+  React.useEffect(() => {
+    const storedFavorites = JSON.parse(
+      localStorage.getItem('favorites') || '[]'
+    );
+    setFavorites(storedFavorites);
+  }, []);
+
   const handleRandomDrink = () => {
     API.fetchRandom().then((drinkData) => {
       setDrink(drinkData);
       setShowModal(true);
     });
+  };
+
+  const viewFavorites = () => {
+    setLetter(null);
+    setDrinks(favorites);
   };
 
   return (
@@ -52,7 +64,7 @@ export default function App() {
             cursor: 'pointer',
             marginRight: isMobile ? '10px' : '15px',
           }}
-          onClick={() => console.log('view favorites')}
+          onClick={viewFavorites}
           width={isMobile ? '30' : '50'}
           height={isMobile ? '30' : '50'}
           viewBox="0 0 50 50"
@@ -65,11 +77,17 @@ export default function App() {
           />
         </svg>
       </div>
-      <Modal drink={drink} showModal={showModal} setShowModal={setShowModal} />
+      <Modal
+        drink={drink}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        favorites={favorites}
+        setFavorites={setFavorites}
+      />
       <Alphabet
         randomDrink={handleRandomDrink}
         setLetter={setLetter}
-        letter={letter}
+        letter={letter ?? ''}
       />
 
       <div style={{ height: '30px' }} />

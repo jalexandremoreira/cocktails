@@ -2,7 +2,7 @@ import React from 'react';
 import { isMobile } from 'react-device-detect';
 
 interface Props {
-  setLetter: React.Dispatch<React.SetStateAction<string>>;
+  setLetter: React.Dispatch<React.SetStateAction<string | null>>;
   letter: string;
   randomDrink: () => void;
 }
