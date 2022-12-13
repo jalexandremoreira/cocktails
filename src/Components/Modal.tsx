@@ -332,6 +332,7 @@ export default function Modal({
                           {ingredient}
                         </span>
                       );
+                    return null;
                   })}
                 </div>
 
