@@ -18,4 +18,12 @@ const fetchByID = async (id: number) => {
     });
 };
 
-export { fetchAlphabet, fetchByID };
+const fetchRandom = async () => {
+  return await fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+    .then((response) => response.json())
+    .then((data) => {
+      return data.drinks[0];
+    });
+};
+
+export { fetchAlphabet, fetchByID, fetchRandom };

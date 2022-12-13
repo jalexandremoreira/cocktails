@@ -23,13 +23,25 @@ export default function App() {
       API.fetchByID(selectedId).then((drinkData) => setDrink(drinkData));
   }, [selectedId]);
 
+  const handleRandomDrink = () => {
+    console.log('random drink');
+    API.fetchRandom().then((drinkData) => {
+      setDrink(drinkData);
+      setShowModal(true);
+    });
+  };
+
   return (
     <div style={{ maxWidth: '900px', margin: isMobile ? '0 10px' : '0 30px' }}>
       <div style={{ width: '100%', fontSize: isMobile ? '50px' : '90px' }}>
         <span className="AbrilFatface white">Cocktails</span>
       </div>
       <Modal drink={drink} showModal={showModal} setShowModal={setShowModal} />
-      <Alphabet setLetter={setLetter} letter={letter} />
+      <Alphabet
+        randomDrink={handleRandomDrink}
+        setLetter={setLetter}
+        letter={letter}
+      />
 
       <div style={{ height: '30px' }} />
 
